@@ -16,8 +16,9 @@ warnings.filterwarnings("ignore")
 
 # Function to download the dataset
 def download_genomic_dataset(dataset_name):
-    if not is_downloaded(dataset_name):
-        download_dataset(dataset_name)
+    dataset_path = Path(__file__).resolve().parent / dataset_name
+    if not is_downloaded(dataset_path):
+        download_dataset(dataset_name, dataset_path)
         print("Dataset downloaded successfully")
 
 # Function to load the dataset
@@ -67,6 +68,7 @@ def main():
     # Load the dataset
     DATASET = "demo_coding_vs_intergenomic_seqs"
     dataset_path = Path.home() / '.genomic_benchmarks' / DATASET
+    print(f"Dataset path: {dataset_path}")
 
     download_genomic_dataset(DATASET)
 
