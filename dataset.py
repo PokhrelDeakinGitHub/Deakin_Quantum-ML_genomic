@@ -130,5 +130,11 @@ print("\n\n")
 print("\n\n")
 train_sequences = np.array(train_sequences)
 train_labels = np.array(train_labels)
+test_sequences = np.array(test_sequences)
+test_labels = np.array(test_labels)
+
 print("after numpy array",train_sequences[:2])
 print("after numpy array",train_labels[:2])
+
+print("after numpy array",test_sequences[:2])
+print("after numpy array",test_labels[:2])
