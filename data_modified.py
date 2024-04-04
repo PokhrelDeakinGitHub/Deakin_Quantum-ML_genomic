@@ -7,7 +7,6 @@ import numpy as np
 from genomic_benchmarks.loc2seq import download_dataset
 from genomic_benchmarks.data_check import is_downloaded, info
 from genomic_benchmarks.models.tf import vectorize_layer
-from genomic_benchmarks.models.tf import get_basic_cnn_model_v0 as get_model
 import time
 
 import matplotlib.pyplot as plt
