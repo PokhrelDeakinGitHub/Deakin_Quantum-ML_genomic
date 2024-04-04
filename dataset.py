@@ -135,6 +135,5 @@ test_labels = np.array(test_labels)
 
 print("after numpy array",train_sequences[:2])
 print("after numpy array",train_labels[:2])
-
 print("after numpy array",test_sequences[:2])
 print("after numpy array",test_labels[:2])
