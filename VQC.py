@@ -68,6 +68,15 @@ vqc.fit(train_sequences_pca, train_labels)
 end_time = time.time()
 elapsed_time = end_time - start_time
 print(f"\nTraining complete. Time taken: {elapsed_time} seconds.")
+
+
+print(f"SCORING MODEL")
+train_score_q = vqc.score(train_sequences_pca, train_labels)
+test_score_q = vqc.score(test_sequences_pca[:200], test_labels[:200])
+print(f"train score with 8 components", train_score_q)
+print(f"test score with 8 components", test_score_q)
+
+
 # from qiskit import QuantumCircuit, Aer, transpile
 # from qiskit.algorithms.optimizers import COBYLA
 # from qiskit.circuit import ParameterVector
