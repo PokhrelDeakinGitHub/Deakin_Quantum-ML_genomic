@@ -32,7 +32,7 @@ test_sequences = np.load('test_sequences.npy')
 test_labels = np.load('test_labels.npy')
 # print('test_labels',test_labels[:2])
 
-pca = PCA(2)
+pca = PCA(n_components=2)
 train_sequences_pca = pca.fit_transform(train_sequences)
 test_sequences_pca = pca.fit_transform(test_sequences)
 
@@ -51,8 +51,8 @@ def training_callback(weights, obj_func_eval):
 
 
 feature_map = RawFeatureVector(feature_dimension=feature_dim)
-ansatz = RealAmplitudes(num_qubits = num_qubits, reps=4)
-optimizer = COBYLA(maxiter=10)
+ansatz = RealAmplitudes(num_qubits = num_qubits, reps=10)
+optimizer = COBYLA(maxiter=100)
 vqc = VQC(
         feature_map=feature_map,
         ansatz=ansatz,
@@ -117,4 +117,4 @@ print(f"test score with 8 components", test_score_q)
 # accuracy = circuit.score(X_test, y_test)
 
 # # Print the results
-# print(f"Accuracy: {accuracy}")
+# print(f"Accuracy: {accuracy}")c
