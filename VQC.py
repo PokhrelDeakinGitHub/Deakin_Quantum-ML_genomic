@@ -51,7 +51,7 @@ def training_callback(weights, obj_func_eval):
 
 
 feature_map = RawFeatureVector(feature_dimension=feature_dim)
-ansatz = RealAmplitudes(num_qubits = num_qubits, reps=10)
+ansatz = RealAmplitudes(num_qubits = num_qubits, reps=4)
 optimizer = COBYLA(maxiter=100)
 vqc = VQC(
         feature_map=feature_map,
