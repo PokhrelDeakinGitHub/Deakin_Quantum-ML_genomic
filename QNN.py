@@ -72,6 +72,7 @@ feature_dim = len(train_sequences_pca[0])
 
 
 from qiskit.circuit.library import ZZFeatureMap
+import datetime
 prep = ZZFeatureMap(feature_dim, reps=2, entanglement="full")
 # prep.draw()
 # prep = prep.assign_parameters(train_sequences_pca)
@@ -109,11 +110,24 @@ sampler_classifier = NeuralNetworkClassifier(
 sampler_classifier.fit(train_sequences_pca,train_labels)
 
 # score classifier
-print("Score of the classifier:",sampler_classifier.score(test_sequences_pca,test_labels))
+# Get the current date and time
+current_datetime = datetime.datetime.now()
 
+# Create a log entry with the current date, time, and score
+log_entry = f"{current_datetime}: Score - {sampler_classifier.score(test_sequences_pca,test_labels)}"
+print(log_entry)
+# Specify the path to the log file
+log_file_path = "/d:/PhD/QML_genomic/QML_genom/log.txt"
 
-
-
+# Check if the log file already exists
+if os.path.exists(log_file_path):
+    # If the log file exists, append the log entry to a new line
+    with open(log_file_path, "a") as log_file:
+        log_file.write(f"\n{log_entry}")
+else:
+    # If the log file does not exist, create a new log file and write the log entry
+    with open(log_file_path, "w") as log_file:
+        log_file.write(log_entry)
 
 
 
