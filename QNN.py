@@ -63,7 +63,7 @@ def training_callback(weights, obj_func_eval):
         print(f"{itr} {obj_func_eval}", end=' | ')
         print('\n')
 
-pca = PCA(n_components=8)  # for example, reduce to 2 dimensions
+pca = PCA(n_components=2)  # for example, reduce to 2 dimensions
 train_sequences_pca = pca.fit_transform(train_sequences)
 test_sequences_pca = pca.fit_transform(test_sequences)
 print("Train Sequences Shape after PCA:",train_sequences_pca.shape)
