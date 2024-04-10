@@ -128,7 +128,3 @@ else:
     # If the log file does not exist, create a new log file and write the log entry
     with open(log_file_path, "w") as log_file:
         log_file.write(log_entry)
-
-
-
-
