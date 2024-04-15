@@ -63,7 +63,7 @@ def training_callback(weights, obj_func_eval):
         print(f"{itr} {obj_func_eval}", end=' | ')
         print('\n')
 
-pca = PCA(n_components=2)  # for example, reduce to 2 dimensions
+pca = PCA(n_components=4)  # for example, reduce to 2 dimensions
 train_sequences_pca = pca.fit_transform(train_sequences)
 test_sequences_pca = pca.fit_transform(test_sequences)
 print("Train Sequences Shape after PCA:",train_sequences_pca.shape)
@@ -73,7 +73,7 @@ feature_dim = len(train_sequences_pca[0])
 
 from qiskit.circuit.library import ZZFeatureMap
 import datetime
-prep = ZZFeatureMap(feature_dim, reps=2, entanglement="full")
+prep = ZZFeatureMap(feature_dim, reps=1)
 # prep.draw()
 # prep = prep.assign_parameters(train_sequences_pca)
 ansatz = RealAmplitudes(num_qubits=feature_dim, reps=4)
@@ -103,7 +103,7 @@ sampler_qnn = SamplerQNN(
 #     plt.show()
 
 sampler_classifier = NeuralNetworkClassifier(
-    neural_network=sampler_qnn, optimizer=COBYLA(maxiter=100), callback=training_callback
+    neural_network=sampler_qnn, optimizer=COBYLA(maxiter=10), callback=training_callback
 )
 
 # fit classifier to data
