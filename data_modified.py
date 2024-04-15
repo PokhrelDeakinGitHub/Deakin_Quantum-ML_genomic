@@ -75,6 +75,7 @@ def main():
     test_ds = load_dataset(dataset_path / 'test', batch_size=64, seed=1337)
 
     preprocess_and_save_data(train_ds, test_ds)
+    print("Data preprocessed and saved successfully")
 
 if __name__ == "__main__":
     main()
