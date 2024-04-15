@@ -61,7 +61,7 @@ def training_callback(weights, obj_func_eval):
         global itr
         itr += 1
         print(f"{itr} {obj_func_eval}", end=' | ')
-        print('\n')
+        
 
 pca = PCA(n_components=4)  # for example, reduce to 2 dimensions
 train_sequences_pca = pca.fit_transform(train_sequences)
@@ -73,6 +73,7 @@ feature_dim = len(train_sequences_pca[0])
 
 from qiskit.circuit.library import ZZFeatureMap
 import datetime
+from tqdm import tqdm
 prep = ZZFeatureMap(feature_dim, reps=1)
 # prep.draw()
 # prep = prep.assign_parameters(train_sequences_pca)
@@ -105,10 +106,24 @@ sampler_qnn = SamplerQNN(
 sampler_classifier = NeuralNetworkClassifier(
     neural_network=sampler_qnn, optimizer=COBYLA(maxiter=10), callback=training_callback
 )
+# Create a progress bar
+progress_bar = tqdm(total=len(train_sequences_pca), desc="Fitting the classifier")
 
-# fit classifier to data
-sampler_classifier.fit(train_sequences_pca,train_labels)
+# Fit classifier to data
+for i in range(len(train_sequences_pca)):
+    # Update the model with one iteration's worth of data
+    sampler_classifier.fit(train_sequences_pca[:10], train_labels[:10])
+    # Update the progress bar
+    progress_bar.update(1)
 
+# Close the progress bar
+progress_bar.close()
+
+# print("Classifier fitted to the data")
+# print("Fitting the classifier to the data")
+# # fit classifier to data
+# # sampler_classifier.fit(train_sequences_pca,train_labels)
+# print("Classifier fitted to the data")
 # score classifier
 # Get the current date and time
 current_datetime = datetime.datetime.now()
