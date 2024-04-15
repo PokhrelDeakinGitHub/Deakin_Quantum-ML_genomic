@@ -72,9 +72,10 @@ prep = ZZFeatureMap(feature_dim, reps=1)
 ansatz = RealAmplitudes(num_qubits=feature_dim, reps=2)
 qc= QNNCircuit(num_qubits=feature_dim ,ansatz = ansatz, feature_map=prep)
 
+objective_func_vals=[]
 
 def callback_graph(weights, obj_func_eval):
-    clear_output(wait=True)
+    clear_output(wait=False)
     objective_func_vals.append(obj_func_eval)
     plt.title("Objective function value against iteration")
     plt.xlabel("Iteration")
