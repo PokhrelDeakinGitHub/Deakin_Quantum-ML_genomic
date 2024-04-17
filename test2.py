@@ -121,3 +121,65 @@ for epoch in range(num_epochs):
 # Close the progress bar
 progress_bar.close()
 
+from tqdm import tqdm
+total_time = 0
+history = {
+#   "train_loss": [],
+#   "test_loss": [],
+  "train_accuracy": [],
+  "test_accuracy": [],
+}
+for epoch in range(10):
+  start = time.time()
+
+  for epoch in range(num_epochs):# Perform training for each batch
+    for i in range(0, len(train_sequences_pca), batch_size):
+        batch_sequences = train_sequences_pca[i:i+batch_size]
+        batch_labels = train_labels[i:i+batch_size]
+        # Perform training for the batch
+        pegasos_qsvc.fit(batch_sequences, batch_labels)
+        
+    end = time.time()
+    total_time += end - start
+    print(f"Epoch {epoch+1}/{10}: Training time: {end - start:.3f} seconds")
+
+
+
+    # Evaluate the model on the training and test sets
+    train_accuracy = pegasos_qsvc.score(train_sequences_pca, train_labels)
+    test_accuracy = pegasos_qsvc.score(test_sequences_pca, test_labels)
+
+    # Update the history dictionary
+
+    history["train_accuracy"].append(train_accuracy)
+    history["test_accuracy"].append(test_accuracy)
+
+    # history["train_loss"].append(train_loss)
+    # history["test_loss"].append(test_loss)
+
+    print(f"Epoch {epoch+1}/{10}: Train Accuracy: {train_accuracy:.3f}, Test Accuracy: {test_accuracy:.3f}")
+
+    log_file_path = "log_zfeatureMap.txt"
+    # Check if the log file already exists
+    if os.path.exists(log_file_path):
+        # If the log file exists, append the log entry to a new line
+        with open(log_file_path, "a") as log_file:
+            log_file.write(f"\n{history}")
+    else:
+        # If the log file does not exist, create a new log file and write the log entry
+        with open(log_file_path, "w") as log_file:
+            log_file.write(history)
+
+
+
+    # Plot the training and test loss
+    clear_output(wait=True)
+    # Plot the training and test accuracy
+
+    plt.figure(figsize=(12, 6))
+    plt.plot(history["train_accuracy"], label="Train Accuracy")
+    plt.plot(history["test_accuracy"], label="Test Accuracy")
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.legend()
+    plt.show()
