@@ -25,4 +25,4 @@ The project utilizes genomic sequence datasets, which are characterized by their
 
 ### Technical Framework
 
-All experiments are conducted using Qiskit, an open-source quantum computing software development framework. Qiskit enables the design, simulation, and analysis of quantum algorithms, making it an ideal tool for this project. Qiskit Mchine learning is used to develop machine learning models.
+All experiments are conducted using Qiskit, an open-source quantum computing software development framework. Qiskit enables the design, simulation, and analysis of quantum algorithms, making it an ideal tool for this project. Qiskit Machine learning is used to develop machine learning models.
