@@ -8,7 +8,7 @@ The core of this project involves the implementation and comparative analysis of
 
 - **Variational Quantum Classifier (VQC):** Utilizes parameterized quantum circuits as a model, which are optimized to perform classification tasks.
 - **Quantum Support Vector Classifier (QSVC):** A quantum-enhanced version of the classical support vector machine, designed to exploit quantum computing's ability to handle complex computations more efficiently.
-- **Pegasos Quantum Support Vector Classifier:** An adaptation of the classical Pegasos (Primal Estimated sub-GrAdient SOlver for SVM) algorithm to the quantum computing domain, aiming for faster convergence on quantum hardware.
+- **Pegasos Quantum Support Vector Classifier (Peg-QSVC):** An adaptation of the classical Pegasos (Primal Estimated sub-GrAdient SOlver for SVM) algorithm to the quantum computing domain, aiming for faster convergence on quantum hardware.
 - **Quantum Neural Networks (QNNs):** An approach to neural networks where quantum circuits are used to perform nonlinear operations, potentially offering advantages in processing complex patterns in data.
 
 ### Objectives
