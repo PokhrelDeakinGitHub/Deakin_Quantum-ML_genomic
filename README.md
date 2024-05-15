@@ -1,6 +1,6 @@
 # CORE IDEA
 
-At Deakin University 9Australia), we explore the power of Quantum Machine Learning, implement and evaluate algorithms like Quantum Support Vector Classifier (QSVC), Pegasos-QSVC, Variational Quantum Circuits (VQC), and Quantum Neural Networks (QNN) in Qiskit with diverse feature mapping techniques for genomic sequence classification. Investigators are from IoT & SE Lab, School of IT, Deakin University, Australia; emails: s223715897@deakin.edu.au; shiva.pokhrel@deakin.edu.au.
+At Deakin University (Australia), we explore the power of Quantum Machine Learning, implement and evaluate algorithms like Quantum Support Vector Classifier (QSVC), Pegasos-QSVC, Variational Quantum Circuits (VQC), and Quantum Neural Networks (QNN) in Qiskit with diverse feature mapping techniques for genomic sequence classification. Investigators are from IoT & SE Lab, School of IT, Deakin University, Australia; emails: s223715897@deakin.edu.au; shiva.pokhrel@deakin.edu.au.
 
 #  Implementing Quantum Machine Learning in Qiskit for Genomic Sequence Classification
 Update: [video](https://youtu.be/lA5DBFqun9U)
