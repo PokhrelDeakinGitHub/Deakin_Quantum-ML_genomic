@@ -17,7 +17,7 @@ The primary objectives of this project are to:
 
 1. **Implement and Evaluate Quantum Machine Learning Algorithms:** To apply the aforementioned quantum algorithms on genomic sequence datasets, evaluating their performance in classification tasks.
 2. **Analyze the Impact of Algorithmic and Data Encoding Parameters:** To systematically vary the parameters within each quantum machine learning algorithm and the techniques used for encoding genomic data into quantum states. This analysis aims to uncover insights into how different settings affect classification accuracy.
-3. **Benchmark Against Classical Approaches:** To provide a comparative analysis with classical machine learning algorithms, thereby quantifying the benefits and challenges of quantum approaches in this specific domain.
+
 
 ### Dataset
 
