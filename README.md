@@ -1,4 +1,4 @@
-# Quantum Machine Learning for Genomic Sequence Classification
+# Quantum Machine Learning For Genomic Data
 
 This repository is dedicated to an exploratory project that combines the cutting-edge fields of quantum computing and machine learning, with a specific focus on genomic sequence data. Our aim is to leverage the unique capabilities of quantum algorithms to improve classification accuracy in the context of genomic data, which presents its own set of challenges and opportunities for innovation.
 
